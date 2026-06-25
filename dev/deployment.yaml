@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: nextjs-app
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      app: myapp
-  replicas: 2
+      app: nextjs-app
   template:
     metadata:
       labels:
-        app: myapp
+        app: nextjs-app
     spec:
       containers:
-      - name: myapp
-        image: nanajanashia/argocd-app:1.2
-        ports:
-        - containerPort: 8080
+        - name: nextjs-app
+          image: cbadri390/nextjs-app:1.0
+          ports:
+            - containerPort: 3000
